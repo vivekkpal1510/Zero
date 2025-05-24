@@ -30,9 +30,6 @@ export default async function OrganizationPage({ params }) {
       <div className="mb-4">
         <ProjectList orgId={organization.id} />
       </div>
-      <div className="mt-8">
-             user id 
-      </div>
     </div>
   );
 }

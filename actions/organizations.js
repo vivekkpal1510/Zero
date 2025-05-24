@@ -17,7 +17,6 @@ export async function getOrganization(slug) {
     throw new Error("User not found");
   }
 
-  // Get the organization details
   const organization = await clerkClient().organizations.getOrganization({
     slug,
   });
@@ -26,7 +25,6 @@ export async function getOrganization(slug) {
     return null;
   }
 
-  // Check if user belongs to this organization
   const { data: membership } =
     await clerkClient().organizations.getOrganizationMembershipList({
       organizationId: organization.id,
@@ -36,7 +34,6 @@ export async function getOrganization(slug) {
     (member) => member.publicUserData.userId === userId
   );
 
-  // If user is not a member, return null
   if (!userMembership) {
     return null;
   }

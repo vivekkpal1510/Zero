@@ -110,6 +110,6 @@ export default function SprintManager({sprint,setSprint,sprints,projectId,}){
           {getStatusText()}
         </Badge>
       )}
-  </>
+  </>   
  );
 }

@@ -14,15 +14,15 @@ export default clerkMiddleware((auth, req) => {
     return auth().redirectToSignIn();
   }
 
-  // if (
-  //   auth().userId &&
-  //   !auth().orgId &&
-  //   req.nextUrl.pathname !== "/onboarding" &&
-  //   req.nextUrl.pathname !== "/"
-  // ) {
-  //   console.log("boarding here ")
-  //   return NextResponse.redirect(new URL("/onboarding", req.url));
-  // }
+  if (
+    auth().userId &&
+    !auth().sessionClaims.o.id &&
+    req.nextUrl.pathname !== "/onboarding" &&
+    req.nextUrl.pathname !== "/"
+  ) {
+    console.log("boarding here ")
+    return NextResponse.redirect(new URL("/onboarding", req.url));
+  }
 });
 
 export const config = {
